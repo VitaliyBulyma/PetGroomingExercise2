@@ -121,12 +121,34 @@ namespace PetGrooming.Controllers
         }
 
         [HttpPost]
-        public ActionResult Update(string PetName, string PetColor, double PetWeight)
+        public ActionResult Update(int PetID,string PetName, string PetColor, double PetWeight, string PetNotes)
         {
-
-            Debug.WriteLine("I am trying to edit a pet's name to "+PetName+" and change the weight to "+PetWeight.ToString());
+            
+            Debug.WriteLine("I am trying to display PetID:"+PetID+" and edit a pet's name to "+PetName+" and change the weight to "+PetWeight.ToString());
 
             //logic for updating the pet in the database goes here
+
+            //string query = "insert into pets (PetName, Weight, color, SpeciesID, Notes) values (@PetName,@PetWeight,@PetColor,@SpeciesID,@PetNotes)";
+           string queryUpdate= "update pets SET PetName=@PetName , Weight=@PetWeight , Color=@PetColor, Notes=@PetNotes where PetID=@PetID";
+            SqlParameter[] sqlparams = new SqlParameter[5]; //0,1,2,3,4 pieces of information to add
+            //each piece of information is a key and value pair
+           sqlparams[0] = new SqlParameter("@PetName", PetName);
+            sqlparams[1] = new SqlParameter("@PetWeight", PetWeight);
+            sqlparams[2] = new SqlParameter("@PetColor", PetColor);
+            sqlparams[3] = new SqlParameter("@PetID", PetID);
+            sqlparams[4] = new SqlParameter("@PetNotes", PetNotes);
+
+            //db.Database.ExecuteSqlCommand will run insert, update, delete statements
+            //db.Pets.SqlCommand will run a select statement, for example.
+            db.Database.ExecuteSqlCommand(queryUpdate, sqlparams);
+
+
+
+
+
+
+
+
             return RedirectToAction("List");
         }
       

@@ -10,9 +10,13 @@
     foreach(var Pet in Model)
     {
         <div>
+            <span class="hidden">@Pet.PetID</span>
             <span><a href="/Pet/Show/@Pet.PetID">@Pet.PetName</a></span>
-            <span>@Pet.Species.Name</span>
-            <span>@Pet.Weight</span>
+            <span>|color: @Pet.Color|</span>
+            <span>|Species: @Pet.Species.Name|</span>
+            <span>|Weight: @Pet.Weight kg|</span>
+            <span>@Pet.Notes</span>
+            
             <span><a href="/Pet/Update/@Pet.PetID">Update</a></span>
         </div>
     }

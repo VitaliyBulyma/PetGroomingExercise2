@@ -7,9 +7,10 @@
 
 <h2>Update</h2>
 <form action="/Pet/Update/@Model.PetID" method="POST">
-    <span>Pet Name</span><input type="text" value="@Model.PetName" id="PetName" name="PetName"/><br />
-    <span>Pet Color</span><input type="text" value="@Model.Color" id="PetColor" name="PetColor"/><br />
-    <span>Pet Weight</span><input type="text" value="@Model.Weight" id="PetWeight" name="PetWeight"/><br />
+    <span class="hidden">Pet ID</span><input class="hidden" type="text" value="@Model.PetID" id="PetID" name="PetID" /><br />
+    <span>Pet Name</span><input type="text" value="@Model.PetName" id="PetName" name="PetName" /><br />
+    <span>Pet Color</span><input type="text" value="@Model.Color" id="PetColor" name="PetColor" /><br />
+    <span>Pet Weight</span><input type="text" value="@Model.Weight" id="PetWeight" name="PetWeight" /><br />
     <div>
         <span>Pet Notes</span>
         <textarea id="PetNotes" name="PetNotes">@Model.Notes</textarea>
