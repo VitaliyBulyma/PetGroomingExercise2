@@ -5,14 +5,18 @@
     ViewBag.Title = "List";
 }
 
-<h2>List</h2>
-@{ 
-    foreach (var species in @Model) {
+<h2>List Of All Species</h2>
+<a href="/Species/Add">Add new</a>
 
-        <div>
-            <a href="/Species/show/@species.SpeciesID">@species.Name</a>
-            
-            <a href="/Species/Delete/@species.SpeciesID">Delete</a>
-        </div>
+@{ 
+    foreach (var species in Model) {
+
+    <div>
+        <span class="hidden">@species.SpeciesID</span>
+        
+        <a href="/Species/show/@species.SpeciesID">@species.Name</a>
+        <a href="/Species/Update/@species.SpeciesID">Update</a>
+        <a href="/Species/Delete/@species.SpeciesID">Delete</a>
+    </div>
     }
 }

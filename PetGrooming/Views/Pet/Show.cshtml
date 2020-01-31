@@ -4,8 +4,10 @@
     ViewBag.Title = "Show";
 }
 
+<a href="/Pet/List">Back to List of all Pets</a>
 <h2>Show Pet</h2>
 <div>ID: @Model.PetID</div>
 <div>Name : @Model.PetName</div>
-<div>Weight : @Model.Weight</div>
 <div>Species : @Model.Species.Name</div>
+<div>Weight : @Model.Weight</div>
+<div>Notes: @Model.Notes</div>

@@ -54,6 +54,28 @@ namespace PetGrooming.Controllers
             return RedirectToAction("List");
         }
 
+        public ActionResult Update(int id)
+        {
+
+           Species selectedspecie = db.Species.SqlQuery("select * from species where speciesid = @id", new SqlParameter("@id", id)).FirstOrDefault();
+
+            return View(selectedspecie);
+        }
+        [HttpPost]
+        public ActionResult Update(int SpeciesID, string Name)
+        {
+            string query = "update species SET  Name=@Name where SpeciesID=@SpeciesID";
+           
+
+            SqlParameter[] sqlparams = new SqlParameter[2];
+
+            sqlparams[0] = new SqlParameter("@Name", Name);
+            sqlparams[1] = new SqlParameter("@SpeciesID", SpeciesID);
+            
+
+            db.Database.ExecuteSqlCommand(query, sqlparams);
+            return RedirectToAction("List");
+        }
 
         public ActionResult Delete(int id)
         {

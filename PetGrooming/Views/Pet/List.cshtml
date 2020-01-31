@@ -9,15 +9,17 @@
 @{ 
     foreach(var Pet in Model)
     {
-        <div>
-            <span class="hidden">@Pet.PetID</span>
-            <span><a href="/Pet/Show/@Pet.PetID">@Pet.PetName</a></span>
-            <span>|color: @Pet.Color|</span>
-            <span>|Species: @Pet.Species.Name|</span>
-            <span>|Weight: @Pet.Weight kg|</span>
-            <span>|Notes: @Pet.Notes</span>
-            
-            <span><a href="/Pet/Update/@Pet.PetID">Update</a></span>
-        </div>
+    <div>
+        <span class="hidden">@Pet.PetID</span>
+        <span><a href="/Pet/Show/@Pet.PetID">@Pet.PetName</a></span>
+        
+        <span>|color: @Pet.Color|</span>
+        <span>|Species: @Pet.Species.Name|</span>
+        <span>|Weight: @Pet.Weight kg|</span>
+        <span>|Notes: @Pet.Notes</span>
+
+        <span><a href="/Pet/Update/@Pet.PetID">Update</a></span>
+        <span><a href="/Pet/Delete/@Pet.PetID">Delete</a></span>
+    </div>
     }
 }
