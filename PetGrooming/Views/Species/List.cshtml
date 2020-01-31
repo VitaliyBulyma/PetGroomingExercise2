@@ -10,7 +10,9 @@
     foreach (var species in @Model) {
 
         <div>
-            @species.Name
+            <a href="/Species/show/@species.SpeciesID">@species.Name</a>
+            
+            <a href="/Species/Delete/@species.SpeciesID">Delete</a>
         </div>
     }
 }
