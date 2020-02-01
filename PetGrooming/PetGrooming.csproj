@@ -236,6 +236,8 @@
     <Content Include="Views\Species\Show.cshtml" />
     <Content Include="Views\Species\Add.cshtml" />
     <Content Include="Views\Species\Update.cshtml" />
+    <Content Include="Views\Species\ConfirmDelete.cshtml" />
+    <Content Include="Views\Pet\ConfirmDelete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

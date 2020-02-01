@@ -155,12 +155,20 @@ namespace PetGrooming.Controllers
         }
 
 
-        //TODO:
-
-        //[HttpPost] Delete
-
-
-        //(optional) Delete
+        public ActionResult ConfirmDelete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            // Pet pet = db.Pets.Find(id); //EF 6 technique
+            Pet pet = db.Pets.SqlQuery("select * from pets where petid=@PetID", new SqlParameter("@PetID", id)).FirstOrDefault();
+            if (pet == null)
+            {
+                return HttpNotFound();
+            }
+            return View(pet);
+        }
         public ActionResult Delete(int id)
         {
 

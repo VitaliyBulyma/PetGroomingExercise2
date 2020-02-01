@@ -5,11 +5,13 @@
 
 <h2>Update</h2>
 
+<a  href="/Species/List">Back to List</a>
 
 <form action="/Species/Update/@Model.SpeciesID" method="POST">
 
+    <span class="hidden" >@Model.SpeciesID</span>
     <span>Species Name</span><input type="text" value="@Model.Name" id="Name" name="Name" /><br />
 
 
-    <input type="submit" value="update species" />
+    <input type="submit" value="Update Species" /><button onclick="window.location.href = '/Species/List';">Cancel</button>
 </form>

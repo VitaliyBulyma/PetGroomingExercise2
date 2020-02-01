@@ -62,24 +62,40 @@ namespace PetGrooming.Controllers
             return View(selectedspecie);
         }
         [HttpPost]
-        public ActionResult Update(int SpeciesID, string Name)
+        public ActionResult Update(int id, string Name)
         {
-            string query = "update species SET  Name=@Name where SpeciesID=@SpeciesID";
+            
+            //Debug.WriteLine("I am trying to display SpeciesID:" + id+ "and string Name" + Name);
+
+
+            string query = "update species SET  name=@Name where speciesID=@id";
            
 
             SqlParameter[] sqlparams = new SqlParameter[2];
 
             sqlparams[0] = new SqlParameter("@Name", Name);
-            sqlparams[1] = new SqlParameter("@SpeciesID", SpeciesID);
+            sqlparams[1] = new SqlParameter("@id", id);
             
 
             db.Database.ExecuteSqlCommand(query, sqlparams);
             return RedirectToAction("List");
         }
+        
+        public ActionResult ConfirmDelete(int id)
+        {
+            string query = "Select * from species where SpeciesID = @id";
+            SqlParameter sqlparam = new SqlParameter("@id", id);
 
+
+            Species selectedspecies = db.Species.SqlQuery(query, sqlparam).FirstOrDefault();
+
+
+            return View(selectedspecies);
+            
+        }
         public ActionResult Delete(int id)
         {
-
+            
             string query = "delete from species where speciesid=@id";
             SqlParameter sqlparam = new SqlParameter("@id",id);
 

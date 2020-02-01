@@ -1,0 +1,14 @@
+﻿@model PetGrooming.Models.Pet
+
+@{
+    ViewBag.Title = "ConfirmDelete";
+}
+
+<h2>ConfirmDelete</h2>
+<div class="hidden">ID: @Model.PetID</div>
+<div >Name : @Model.PetName</div>
+<div>Species : @Model.Species.Name</div>
+<div>Weight : @Model.Weight</div>
+<div>Notes: @Model.Notes</div>
+<a href="/Pet/Delete/@Model.PetID">Delete</a>
+<button onclick="window.location.href = '/Pet/List';">Cancel</button>

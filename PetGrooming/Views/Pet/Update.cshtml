@@ -7,15 +7,15 @@
 }
 
 <h2>Update</h2>
-
+<a href="/Pet/List">Back to List</a>
 <form action="/Pet/Update/@Model.pet.PetID" method="POST">
     <span class="hidden">Pet ID</span><input class="hidden" type="text" value="@Model.pet.PetID" id="PetID" name="PetID" /><br />
     <span>Pet Name</span><input type="text" value="@Model.pet.PetName" id="PetName" name="PetName" /><br />
     <span>Pet Color</span><input type="text" value="@Model.pet.Color" id="PetColor" name="PetColor" /><br />
     <span>Pet Weight</span><input type="text" value="@Model.pet.Weight" id="PetWeight" name="PetWeight" /><br />
-    <span>
+    <span>Species: </span><span>
 
-        <select id="SpecoesID" name="SpeciesID">
+        <select  id="SpeciesID" name="SpeciesID">
             @{ 
                 foreach (var species in Model.species)
                 {
@@ -34,5 +34,5 @@
         <span>Pet Notes</span>
         <textarea id="PetNotes" name="PetNotes">@Model.pet.Notes</textarea>
     </div>
-    <input type="submit" value="update pet" />
+    <input type="submit" value="Update Pet" /><button onclick="window.location.href = '/Pet/List';">Cancel</button>
 </form>

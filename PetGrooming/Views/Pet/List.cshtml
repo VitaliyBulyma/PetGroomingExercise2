@@ -13,13 +13,13 @@
         <span class="hidden">@Pet.PetID</span>
         <span><a href="/Pet/Show/@Pet.PetID">@Pet.PetName</a></span>
         
-        <span>|color: @Pet.Color|</span>
-        <span>|Species: @Pet.Species.Name|</span>
-        <span>|Weight: @Pet.Weight kg|</span>
+        <span>|Color: @Pet.Color</span>
+        <span>|Species: @Pet.Species.Name</span>
+        <span>|Weight: @Pet.Weight KG</span>
         <span>|Notes: @Pet.Notes</span>
 
-        <span><a href="/Pet/Update/@Pet.PetID">Update</a></span>
-        <span><a href="/Pet/Delete/@Pet.PetID">Delete</a></span>
+        <span><a href="/Pet/Update/@Pet.PetID">Update/Edit</a></span>
+        <span><a href="/Pet/ConfirmDelete/@Pet.PetID">Delete</a></span>
     </div>
     }
 }

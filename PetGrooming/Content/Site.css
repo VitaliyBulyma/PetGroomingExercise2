@@ -2,7 +2,12 @@
     padding-top: 50px;
     padding-bottom: 20px;
 }
+.button{
+    width:100px;
+    //height:50px;
+    background-color:lightblue;
 
+}
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;

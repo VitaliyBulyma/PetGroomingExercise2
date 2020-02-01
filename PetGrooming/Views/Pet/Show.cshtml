@@ -7,7 +7,10 @@
 <a href="/Pet/List">Back to List of all Pets</a>
 <h2>Show Pet</h2>
 <div>ID: @Model.PetID</div>
-<div>Name : @Model.PetName</div>
+<div class="hidden">Name : @Model.PetName</div>
 <div>Species : @Model.Species.Name</div>
 <div>Weight : @Model.Weight</div>
 <div>Notes: @Model.Notes</div>
+
+<button onclick="window.location.href = '/Pet/Update/@Model.PetID';">Update/Edit</button>
+<button onclick="window.location.href = '/Pet/Delete/@Model.PetID';">Delete</button>
