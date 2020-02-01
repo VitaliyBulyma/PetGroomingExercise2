@@ -27,3 +27,13 @@ select,
 textarea {
     max-width: 280px;
 }
+/*Close button for pop up windows*/
+.closeButton {
+    display: none;
+}
+
+@media screen and (max-width: 500px) {
+    .closeButton {
+        display:block;
+    }
+}
